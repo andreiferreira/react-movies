@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
+import { toast } from 'react-toastify'
 import api from '../../services/api';
 import styles from './filme.module.scss';
 
@@ -37,13 +38,13 @@ function Filme(){
         const hasFilme = filmesSalvos.some( (filmeSalvo) => filmeSalvo.id === filme.id)
 
         if(hasFilme){
-            alert('Você já salvou este filme');
+            toast.warning("Este filme já foi favoritado!")
             return;
         }
 
         filmesSalvos.push(filme);
         localStorage.setItem('filmes', JSON.stringify(filmesSalvos));
-        alert('Filme salvo com sucesso!')
+        toast.success('Filme favoritado com sucesso!')
     }
 
     if(loading){
@@ -53,16 +54,16 @@ function Filme(){
     }
 
     return(
-        <div>
-            <h1>{filme.nome}</h1>
-            <img src={filme.foto} alt={filme.foto}></img>
+        <div className={styles.conteudo}>
+            <h1 className={styles.titulo}>{filme.nome}</h1>
+            <img className={styles.cover} src={filme.foto} alt={filme.foto}></img>
 
             <h3>Sinopse</h3>
             {filme.sinopse}
 
-            <div>
-                <button onClick={salvar}>SALVAR</button>
-                <button>
+            <div className={styles.botoes}>
+                <button className={styles.botao} onClick={salvar}>SALVAR</button>
+                <button className={styles.botao}>
                     <a target="blank" href={`https://youtube.com/results?search_query=${filme.nome} trailer`}>
                     TRAILER
                     </a>

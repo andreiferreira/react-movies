@@ -1,0 +1,33 @@
+.conteudo{
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo{
+    margin: 0 auto;
+}
+
+.botao{
+    text-decoration: none;
+    background-color: brown;
+    color: white;
+    border: none;
+    padding: 5px;
+    margin-right: 20px;
+}
+
+.cover{
+    justify-items: center;
+    width: 50%;
+    height: 300px;
+    margin: 20px auto;
+}
+
+.botoes{
+    margin-top: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}

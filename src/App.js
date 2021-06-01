@@ -1,10 +1,14 @@
 import './App.css';
-import Header from './components/Header/Header';
 import Routes from './routes';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
-    <Routes/>
+    <div>
+      <Routes/>
+      <ToastContainer autoClose={3000} closeButton={true} position={"top-center"} hideProgressBar={true}/>
+    </div>
   )
 }
 
